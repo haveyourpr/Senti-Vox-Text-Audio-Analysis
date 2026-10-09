@@ -3,11 +3,6 @@ import java.util.List;
 import java.util.function.IntPredicate;
 import java.util.regex.Pattern;
 
-/**
- * Java port of tokenizer.py (senti_vox_tokenizer).
- * Differences by design: tokens carry a tag ("word" / "number" / "punctuation") so the
- * analyzer can keep the `tag === "word"` filter from cf-analyze.ts. Splitting rules are identical to the Python code.
- */
 public final class Tokenizer {
     private Tokenizer() {}
 
@@ -36,10 +31,8 @@ public final class Tokenizer {
         return text;
     }
 
-    // ---------- script tables ----------
     private static IntPredicate range(int a, int b) { return c -> c >= a && c <= b; }
 
-    // order matters: digits first, then scripts (exactly like the if/elif chain in Python)
     private static final IntPredicate[] DIGITS = {
         range('0', '9'),          // English
         range(2406, 2415),        // Hindi

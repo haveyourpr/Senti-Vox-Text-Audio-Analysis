@@ -3,7 +3,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Port of min-heap.ts. Same sift logic, so ties and output order match the TypeScript version. */
 public final class MinHeap {
     public static final class FrequencyPair {
         public final String word;

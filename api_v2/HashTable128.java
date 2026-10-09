@@ -1,8 +1,3 @@
-/**
- * Compact open-addressing hash table: 128-bit unsigned key (hi, lo) -> small int value.
- * Used instead of HashMap<BigInteger, Integer> so 1.4M+ dataset entries stay light on memory.
- * Also used as a "set" (value is ignored) for stop words.
- */
 public final class HashTable128 {
     private long[] hi, lo;
     private byte[] val;      // -1 = empty slot

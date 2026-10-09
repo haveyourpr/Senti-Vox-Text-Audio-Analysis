@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.ArrayList;
 
-/** Port of cf-analyze.ts (startSingleAnalysis / startBatchAnalysis). */
 public final class SentimentAnalyzer {
     public static final String SENTIMENT_POSITIVE = "Positive";
     public static final String SENTIMENT_NEGATIVE = "Negative";

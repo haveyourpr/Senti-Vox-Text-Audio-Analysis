@@ -2,11 +2,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Port of word-cloud.ts (Archimedean-spiral SVG word cloud).
- * StrictMath is used for sin/cos because V8's Math.cos/sin are fdlibm ports (StrictMath = fdlibm),
- * so the coordinates come out identical to the TypeScript output.
- */
 public final class WordCloud {
     private WordCloud() {}
 

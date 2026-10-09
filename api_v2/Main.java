@@ -6,13 +6,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Entry point.  Build & run:
- *     javac Main.java
- *     java Main                 -> runs the built-in test cases, prints one JSON document
- *     java Main "some comment"  -> analyses the given text(s) as a batch and prints JSON
- * Optional:  java -Ddataset.dir=/path/to/dataset Main
- */
 public class Main {
 
     public static void main(String[] args) throws Exception {
