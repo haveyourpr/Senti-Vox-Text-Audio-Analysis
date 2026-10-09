@@ -1,8 +1,3 @@
-/**
- * Port of JSON_KEYS from "../utils/keys" in the TypeScript project.
- * NOTE: utils/keys.ts was NOT included in the uploaded zip, so these string values are inferred from the
- * SentimentResult field names (snake_case). If your keys.ts uses different strings, change them here only.
- */
 public final class JsonKeys {
     private JsonKeys() {}
     public static final String positiveScore    = "positive_score";
