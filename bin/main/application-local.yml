@@ -1,0 +1,4 @@
+upstash:
+    redis:
+        url: https://measured-kiwi-81807.upstash.io
+        token: gQAAAAAAAT-PAAIncDI1NDJhMTBkYzNjY2Q0ZGI4OGMzNzU0N2Q3YWY2OTZmYXAyODE4MDc
