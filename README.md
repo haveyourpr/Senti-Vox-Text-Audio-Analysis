@@ -8,6 +8,7 @@ A Micronaut-based REST API for sentiment analysis with Upstash Redis token track
 
 - [Environment Variables](#environment-variables)
 - [Commands](#commands)
+- [Docker](#docker)
 - [Deploying to Render.com](#deploying-to-rendercom)
 - [API Documentation](#api-documentation)
 - [Reference Links](#reference-links)
@@ -101,6 +102,34 @@ Output: `build/libs/api_v2-0.1-all.jar`
 ```bash
 java -jar build/libs/api_v2-0.1-all.jar
 ```
+
+---
+
+## Docker
+
+The multi-stage [Dockerfile](Dockerfile) builds the fat JAR with JDK 25 and runs it on a slim Alpine JRE 25 image as a non-root user.
+
+### Build the image
+
+```bash
+docker build -t senti-vox-api .
+```
+
+### Run the container
+
+```bash
+docker run -d --name senti-vox-api -p 8086:8086   -e UPSTASH_REDIS_URL=https://your-db.upstash.io   -e UPSTASH_REDIS_TOKEN=your_token_here   senti-vox-api
+```
+
+Or reuse your `.env` file:
+
+```bash
+docker run -d --name senti-vox-api -p 8086:8086 --env-file .env senti-vox-api
+```
+
+The API is then available at `http://localhost:8086` (Swagger UI at `/swagger/`).
+
+> `.dockerignore` excludes `.env` and `application-local.yml`, so credentials are never baked into the image. Always pass them at runtime.
 
 ---
 
