@@ -99,24 +99,23 @@ public class RedisService {
     }
 
     private Long parseDeductResult(HttpResponse<byte[]> response) {
-        return 10000L;
-        // Map<String, Object> body;
-        // try {
-        //     body = jsonMapper.readValue(response.body(), Argument.mapOf(String.class, Object.class));
-        // } catch (IOException e) {
-        //     throw new UncheckedIOException("Invalid response from Redis (HTTP " + response.statusCode() + ")", e);
-        // }
+        Map<String, Object> body;
+        try {
+            body = jsonMapper.readValue(response.body(), Argument.mapOf(String.class, Object.class));
+        } catch (IOException e) {
+            throw new UncheckedIOException("Invalid response from Redis (HTTP " + response.statusCode() + ")", e);
+        }
 
-        // if (body.get("error") != null)
-        //     throw new IllegalStateException("Redis error: " + body.get("error"));
-        // if (!(body.get("result") instanceof Number result))
-        //     throw new IllegalStateException("Unexpected response from Redis (HTTP " + response.statusCode() + "): " + body);
+        if (body.get("error") != null)
+            throw new IllegalStateException("Redis error: " + body.get("error"));
+        if (!(body.get("result") instanceof Number result))
+            throw new IllegalStateException("Unexpected response from Redis (HTTP " + response.statusCode() + "): " + body);
 
-        // long remaining = result.longValue();
+        long remaining = result.longValue();
 
-        // // -1 = Not enough tokens, -2 = Key doesn't exist
-        // if (remaining == -1 || remaining == -2) return null;
+        // -1 = Not enough tokens, -2 = Key doesn't exist
+        if (remaining == -1 || remaining == -2) return null;
 
-        // return remaining;
+        return remaining;
     }
 }
