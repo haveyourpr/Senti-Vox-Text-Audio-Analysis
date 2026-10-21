@@ -13,7 +13,12 @@ out/
 .settings
 .classpath
 .factorypath
+.vscode
 
 # Credentials — never commit these
 .env
 src/main/resources/application-local.yml
+
+# Java generated
+*.class
+bin/
